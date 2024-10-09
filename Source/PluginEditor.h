@@ -14,20 +14,24 @@
 //==============================================================================
 /**
 */
-class SimpleEQAudioProcessorEditor  : public juce::AudioProcessorEditor
+class SimpleEQPluginAudioProcessorEditor  : public juce::AudioProcessorEditor,
+                                              private juce::Slider::Listener
 {
 public:
-    SimpleEQAudioProcessorEditor (SimpleEQAudioProcessor&);
-    ~SimpleEQAudioProcessorEditor() override;
+    SimpleEQPluginAudioProcessorEditor (SimpleEQPluginAudioProcessor&);
+    ~SimpleEQPluginAudioProcessorEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
+    void sliderValueChanged(juce::Slider* slider) override;
+    
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    SimpleEQAudioProcessor& audioProcessor;
+    SimpleEQPluginAudioProcessor& audioProcessor;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQPluginAudioProcessorEditor)
+    juce::Slider midiVolume;
 };
