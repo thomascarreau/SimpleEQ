@@ -11,8 +11,8 @@
       "forcedInclude": [
         "${workspaceFolder}/JuceLibraryCode/JucePluginDefines.h"
       ],
-      "cStandard": "c11",
-      "cppStandard": "c++11"
+      "cStandard": "c17",
+      "cppStandard": "c++17"
     }
   ]
 }

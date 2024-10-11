@@ -5,6 +5,7 @@
       "name": "Debug in AudioPluginHost",
       "type": "cppdbg",
       "request": "launch",
+      "envFile": "${workspaceFolder}/.env",
       "program": "${env:JUCE_FRAMEWORK_PATH}/extras/AudioPluginHost/Builds/MacOSX/build/Debug/AudioPluginHost.app",
       "args": ["${workspaceFolder}/${workspaceFolderBasename}.filtergraph"],
       "stopAtEntry": false,
