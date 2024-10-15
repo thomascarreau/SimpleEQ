@@ -2,21 +2,31 @@
 
 #include "PluginProcessor.h"
 
-//==============================================================================
-class SimpleEQAudioProcessorEditor final : public juce::AudioProcessorEditor
-{
-public:
-    explicit SimpleEQAudioProcessorEditor (SimpleEQAudioProcessor&);
-    ~SimpleEQAudioProcessorEditor() override;
+struct CustomRotarySlider : juce::Slider {
+  CustomRotarySlider()
+      : juce::Slider(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag,
+                     juce::Slider::TextEntryBoxPosition::NoTextBox) {}
+};
 
-    //==============================================================================
-    void paint (juce::Graphics&) override;
-    void resized() override;
+//==============================================================================
+class SimpleEQAudioProcessorEditor final : public juce::AudioProcessorEditor {
+public:
+  explicit SimpleEQAudioProcessorEditor(SimpleEQAudioProcessor &);
+  ~SimpleEQAudioProcessorEditor() override;
+
+  //==============================================================================
+  void paint(juce::Graphics &) override;
+  void resized() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    SimpleEQAudioProcessor& processorRef;
+  // This reference is provided as a quick way for your editor to
+  // access the processor object that created it.
+  SimpleEQAudioProcessor &processorRef;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQAudioProcessorEditor)
+  CustomRotarySlider peakFreqSlider, peakGainSlider, peakQualitySlider,
+      lowCutFreqSlider, highCutFreqSlider, lowCutSlopeSlider,
+      highCutSlopeSlider;
+  std::vector<juce::Component *> getComps();
+
+  JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SimpleEQAudioProcessorEditor)
 };
