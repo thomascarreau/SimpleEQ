@@ -90,8 +90,7 @@ private:
   }
 
   template <typename ChainType, typename CoefficientType>
-  void updateCutFilter(ChainType &chain,
-                       const CoefficientType &coefficients,
+  void updateCutFilter(ChainType &chain, const CoefficientType &coefficients,
                        const Slope &slope) {
     chain.template setBypassed<0>(true);
     chain.template setBypassed<1>(true);
@@ -114,8 +113,8 @@ private:
     }
   }
 
-  void updateLowCutFilters(const ChainSettings& chainSettings);
-  void updateHighCutFilters(const ChainSettings& chainSettings);
+  void updateLowCutFilters(const ChainSettings &chainSettings);
+  void updateHighCutFilters(const ChainSettings &chainSettings);
 
   void updateFilters();
 
