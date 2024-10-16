@@ -14,7 +14,7 @@ class SimpleEQAudioProcessorEditor final
       juce::AudioProcessorParameter::Listener,
       juce::Timer {
 public:
-  explicit SimpleEQAudioProcessorEditor(SimpleEQAudioProcessor &);
+  SimpleEQAudioProcessorEditor(SimpleEQAudioProcessor &);
   ~SimpleEQAudioProcessorEditor() override;
 
   //==============================================================================
